@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "422102328112",
+    "project_id": "antiwaste3",
+    "storage_bucket": "antiwaste3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422102328112:android:65ca8de04539b0b7981ef5",
+        "android_client_info": {
+          "package_name": "com.example.antiwaste3_0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422102328112-5tpdg4pu8fce6lhj2l4k0lp7rnfuirjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.antiwaste3_0",
+            "certificate_hash": "c399bd445957196410628b071d166c5e4b036b1e"
+          }
+        },
+        {
+          "client_id": "422102328112-mpi7lf5mcte0m64i1sqklr07od91m4b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHAJKuOwTDztVD9NtznZ0ongICmMYiocQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422102328112-mpi7lf5mcte0m64i1sqklr07od91m4b7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
