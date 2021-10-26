@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/btn_mapEW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="173dp"
+        android:layout_height="39dp"
         android:text="E-Waste"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,4 +39,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_mapEW" />
+
+    <Button
+        android:id="@+id/btn_UP"
+        android:layout_width="161dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:text="Upload Photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_map2G" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

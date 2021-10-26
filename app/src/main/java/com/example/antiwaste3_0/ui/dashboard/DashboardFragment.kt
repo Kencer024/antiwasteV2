@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.antiwaste3_0.MapsActivity
 import com.example.antiwaste3_0.MapsActivity2
 import com.example.antiwaste3_0.R
+import com.example.antiwaste3_0.UploadPhotoActivity
 import com.example.antiwaste3_0.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -47,6 +48,11 @@ class DashboardFragment : Fragment() {
         val btn2 : Button = root.findViewById<Button>(R.id.btn_map2G)
         btn2.setOnClickListener{
             startActivity(Intent(activity, MapsActivity2::class.java))        //used activity instead of "@LoginActivity"
+        }
+
+        val btn3 : Button = root.findViewById<Button>(R.id.btn_UP)
+        btn3.setOnClickListener{
+            startActivity(Intent(activity, UploadPhotoActivity::class.java))        //used activity instead of "@LoginActivity"
         }
 
         return root
