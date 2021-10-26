@@ -39,10 +39,12 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
         /*
         btn_logout.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(activity, LoginActivity::class.java))
+
         }*/
 
         return root
