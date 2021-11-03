@@ -17,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         //button called textview when pressed will go to register activity
         tv_register.setOnClickListener{
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
