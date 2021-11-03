@@ -43,6 +43,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val sg = LatLng(1.35,103.8)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sg,12f))
+
+        // data points from gov website
         val layer = KmlLayer(mMap, R.raw.raw_map, this@MapsActivity)
         layer.addLayerToMap()
 
