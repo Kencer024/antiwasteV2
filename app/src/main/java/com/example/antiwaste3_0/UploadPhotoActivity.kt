@@ -12,6 +12,7 @@ import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,7 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_upload_photo.*
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import java.io.IOException
+import java.lang.reflect.TypeVariable
 
 
 class UploadPhotoActivity : AppCompatActivity() {
@@ -70,6 +72,7 @@ class UploadPhotoActivity : AppCompatActivity() {
                                 //Log.e(java.class.simpleName, exception.message, exception)
                             }
                     }
+                updatePoints()
             }else{
                 Toast.makeText(
                     this,
@@ -93,6 +96,7 @@ class UploadPhotoActivity : AppCompatActivity() {
                 Intent.ACTION_PICK,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             )
+
             startActivityForResult(galleryIntent, 222)
 
         }else{
@@ -124,3 +128,45 @@ class UploadPhotoActivity : AppCompatActivity() {
         }
     }
 }
+
+fun updatePoints() {
+    val database = FirebaseFirestore.getInstance()
+    val user = Firebase.auth.currentUser
+    var points2 = 2
+    if (user != null) {
+        /*database.collection("users").document(user.email.toString()).get()
+            .addOnCompleteListener() { task ->
+                val points = task.result?.data?.getValue("rewardPts") as Int
+                points2 = points + 1
+            }*/
+        database.collection("users").document(user.email.toString()).update("rewardPts", points2)
+
+        /*
+    if (user != null) {
+        database.collection("users").document(user.email.toString()).get()
+            .addOnCompleteListener(){task ->
+                val email = task.result?.data?.getValue("email") as String?
+                val username = task.result?.data?.getValue("username") as String?
+                val phoneNum = task.result?.data?.getValue("phoneNumber") as String?
+                val points = task.result?.data?.getValue("rewardPts") as Int
+                val points2 = points + 1
+
+                saveFireStore(email!!, username!!, phoneNum!!, points2)
+            }
+
+    }*/
+    }
+}
+
+fun saveFireStore(email:String, phoneNumber: String, username: String, point:Int){
+    val database = FirebaseFirestore.getInstance()
+    val user:MutableMap<String, Any>  = HashMap()
+    user["email"] = email
+    user["phoneNumber"] = phoneNumber
+    user["username"] = username
+    user["rewardPts"] = point
+
+    database.collection("users").document(email).set(user)
+
+}
+
