@@ -5,10 +5,12 @@ import android.text.TextUtils
 import android.widget.Toast
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.antiwaste3_0.ui.home.HomeFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -31,16 +33,32 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
 
-                TextUtils.isEmpty(et_register_password.text.toString().trim{ it <= ' '})->{
+                TextUtils.isEmpty(et_register_password.text.toString().trim{ it <= ' '})-> {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                TextUtils.isEmpty(et_register_phone_number.text.toString().trim{ it <= ' '})->{
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        "Please enter phone number.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                TextUtils.isEmpty(et_register_username.text.toString().trim{ it <= ' '})-> {
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        "Please enter username.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 else->{
                     val email: String = et_register_email.text.toString().trim{ it<= ' '}
                     val password: String = et_register_password.text.toString().trim{ it<= ' '}
+                    val phoneNumber: String = et_register_phone_number.text.toString().trim{ it<= ' '}
+                    val username: String = et_register_username.text.toString().trim{ it<= ' '}
 
                     //Create instance and create a register a user with email and password
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
@@ -49,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
+                            saveFireStore(email, phoneNumber, username)
                             Toast.makeText(
                                 this@RegisterActivity,
                                 "You are registered successfully",
@@ -80,5 +99,17 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun saveFireStore(email:String, phoneNumber: String, username: String){
+        val database = FirebaseFirestore.getInstance()
+        val user:MutableMap<String, Any>  = HashMap()
+        user["email"] = email
+        user["phoneNumber"] = phoneNumber
+        user["username"] = username
+        user["rewardPts"] = 0
+
+        database.collection("users").document(phoneNumber).set(user)
+
     }
 }

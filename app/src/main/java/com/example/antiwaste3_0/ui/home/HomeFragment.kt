@@ -13,6 +13,8 @@ import com.example.antiwaste3_0.LoginActivity
 import com.example.antiwaste3_0.R
 import com.example.antiwaste3_0.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -23,6 +25,8 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    val user = Firebase.auth.currentUser
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +43,8 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+
 
         /*
         btn_logout.setOnClickListener{
