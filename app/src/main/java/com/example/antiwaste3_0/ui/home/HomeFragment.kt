@@ -16,6 +16,7 @@ import com.example.antiwaste3_0.R
 import com.example.antiwaste3_0.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -28,6 +29,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    val database = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,9 +57,17 @@ class HomeFragment : Fragment() {
 
         //once user signs in, display username and reward points
         val user = Firebase.auth.currentUser
+        val text1 : TextView = root.findViewById<TextView>(R.id.tv2_user_id)
+        val text2 : TextView = root.findViewById<TextView>(R.id.tv_user_pts)
         if (user != null) {
-            val text1 : TextView = root.findViewById<TextView>(R.id.tv2_user_id)
-            text1.text = user.email
+            database.collection("users").document(user.email.toString()).get()
+                .addOnCompleteListener(){task ->
+                    text1.text = task.result?.data?.getValue("username") as CharSequence?
+                    val points = task.result?.data?.getValue("rewardPts")
+                    text2.text = "$points points"
+                }
+
+            //
             //print(user.email)
         } else {
             // No user is signed in

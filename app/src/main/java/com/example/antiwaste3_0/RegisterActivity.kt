@@ -109,7 +109,7 @@ class RegisterActivity : AppCompatActivity() {
         user["username"] = username
         user["rewardPts"] = 0
 
-        database.collection("users").document(phoneNumber).set(user)
+        database.collection("users").document(email).set(user)
 
     }
 }
