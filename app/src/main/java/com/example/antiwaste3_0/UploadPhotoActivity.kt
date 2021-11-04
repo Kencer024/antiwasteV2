@@ -12,8 +12,12 @@ import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_upload_photo.*
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import java.io.IOException
 
@@ -76,6 +80,8 @@ class UploadPhotoActivity : AppCompatActivity() {
         }
     }
 
+
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -88,6 +94,7 @@ class UploadPhotoActivity : AppCompatActivity() {
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             )
             startActivityForResult(galleryIntent, 222)
+
         }else{
             Toast.makeText(
                 this,

@@ -4,24 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_maps.xml" value="0.29981884057971014" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_register.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/activity_upload_photo.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/fragment_dashboard.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/fragment_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/antiwaste3_0/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.16111111111111112" />
-        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.16111111111111112" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16111111111111112" />
-        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2390625" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_maps2.xml" value="0.22291666666666668" />
-        <entry key="app/src/main/res/layout/activity_upload_photo.xml" value="0.22291666666666668" />
-        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.13903985507246377" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22291666666666668" />
-        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.22291666666666668" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22291666666666668" />
       </map>
     </option>
   </component>

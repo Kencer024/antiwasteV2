@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.antiwaste3_0.LoginActivity
+import com.example.antiwaste3_0.MapsActivity
 import com.example.antiwaste3_0.R
 import com.example.antiwaste3_0.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,7 +28,6 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    val user = Firebase.auth.currentUser
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,14 +45,25 @@ class HomeFragment : Fragment() {
             textView.text = it
         })
 
-
-
-        /*
-        btn_logout.setOnClickListener{
+        //logout button
+        val btn_log_out : Button = root.findViewById<Button>(R.id.btn_logout)
+        btn_log_out.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(activity, LoginActivity::class.java))
+            startActivity(Intent(activity, LoginActivity::class.java))        //used activity instead of "@LoginActivity"
+        }
 
-        }*/
+
+        //once user signs in, display username and reward points
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            val text1 : TextView = root.findViewById<TextView>(R.id.tv2_user_id)
+            text1.text = user.email
+            //print(user.email)
+        } else {
+            // No user is signed in
+        }
+        // [END check_current_user]
+
 
         return root
     }
