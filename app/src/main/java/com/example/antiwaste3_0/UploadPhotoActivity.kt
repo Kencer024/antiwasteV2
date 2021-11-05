@@ -72,6 +72,8 @@ class UploadPhotoActivity : AppCompatActivity() {
                                 //Log.e(java.class.simpleName, exception.message, exception)
                             }
                     }
+
+                //update points here
                 updatePoints()
             }else{
                 Toast.makeText(
@@ -132,41 +134,32 @@ class UploadPhotoActivity : AppCompatActivity() {
 fun updatePoints() {
     val database = FirebaseFirestore.getInstance()
     val user = Firebase.auth.currentUser
-    var points2 = 2
-    if (user != null) {
-        /*database.collection("users").document(user.email.toString()).get()
-            .addOnCompleteListener() { task ->
-                val points = task.result?.data?.getValue("rewardPts") as Int
-                points2 = points + 1
-            }*/
-        database.collection("users").document(user.email.toString()).update("rewardPts", points2)
-
-        /*
+    lateinit var points : Number
     if (user != null) {
         database.collection("users").document(user.email.toString()).get()
-            .addOnCompleteListener(){task ->
-                val email = task.result?.data?.getValue("email") as String?
-                val username = task.result?.data?.getValue("username") as String?
-                val phoneNum = task.result?.data?.getValue("phoneNumber") as String?
-                val points = task.result?.data?.getValue("rewardPts") as Int
-                val points2 = points + 1
-
-                saveFireStore(email!!, username!!, phoneNum!!, points2)
+            .addOnSuccessListener() { task ->
+                points = task.data?.getValue("rewardPts") as Number         //getPoints
+                database.collection("users")                        //updatePoints+1
+                    .document(user.email.toString())
+                    .update("rewardPts", points.toInt()+1)
             }
 
-    }*/
     }
+    else{
+        points = 500
+    }
+
 }
 
-fun saveFireStore(email:String, phoneNumber: String, username: String, point:Int){
+/*
+fun updatePoints() {
     val database = FirebaseFirestore.getInstance()
-    val user:MutableMap<String, Any>  = HashMap()
-    user["email"] = email
-    user["phoneNumber"] = phoneNumber
-    user["username"] = username
-    user["rewardPts"] = point
+    val user = Firebase.auth.currentUser
+    var points2 = getPoints().toInt()
 
-    database.collection("users").document(email).set(user)
+    if (user != null) {
+        database.collection("users").document(user.email.toString()).update("rewardPts", points2)
+        }
+}*/
 
-}
 
