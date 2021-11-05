@@ -25,8 +25,7 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
-    val CITY: String = "singapore,sg"
-    val API: String = "f9bc4c6a592a5913019746c8446edbf1"
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -62,12 +61,19 @@ class HomeFragment : Fragment() {
         val user = Firebase.auth.currentUser
         val text1 : TextView = root.findViewById<TextView>(R.id.tv2_user_id)
         val text2 : TextView = root.findViewById<TextView>(R.id.tv_user_pts)
+        val title : TextView = root.findViewById<TextView>(R.id.tv_title)
+        val content : TextView = root.findViewById<TextView>(R.id.tv_content)
         if (user != null) {
             database.collection("users").document(user.email.toString()).get()
                 .addOnCompleteListener(){task ->
                     text1.text = task.result?.data?.getValue("username") as CharSequence?
                     val points = task.result?.data?.getValue("rewardPts")
                     text2.text = "$points points"
+                }
+            database.collection("articles").document("title1").get()
+                .addOnSuccessListener { task->
+                    title.text = task.data?.getValue("title") as String
+                    content.text = task.data?.getValue("article") as String
                 }
 
             //
