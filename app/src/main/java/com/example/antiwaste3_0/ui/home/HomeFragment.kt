@@ -25,6 +25,9 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
+    val CITY: String = "singapore,sg"
+    val API: String = "f9bc4c6a592a5913019746c8446edbf1"
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
