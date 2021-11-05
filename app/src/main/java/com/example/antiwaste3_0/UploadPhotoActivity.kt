@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -55,14 +56,20 @@ class UploadPhotoActivity : AppCompatActivity() {
                 val imageExtension = MimeTypeMap    // get image extension
                     .getSingleton().getExtensionFromMimeType(contentResolver.getType(mSelectedImageFileUri!!))
 
+                val StringRef : String = "Image" + System.currentTimeMillis() + "." + imageExtension
+
                 val sRef : StorageReference = FirebaseStorage.getInstance().reference.child(
-                    "Image" + System.currentTimeMillis() + "." + imageExtension
+                    StringRef
                 )
                 sRef.putFile(mSelectedImageFileUri!!)
                     .addOnSuccessListener { taskSnapshot->
                         taskSnapshot.metadata!!.reference!!.downloadUrl
                             .addOnSuccessListener {url->
                                 tv_image_upload_success.text = "Image uploaded successfully :: $url"
+
+                                //update points here
+                                updatePoints(StringRef)
+
                             }.addOnFailureListener{exception->
                                 Toast.makeText(
                                     this,
@@ -73,8 +80,7 @@ class UploadPhotoActivity : AppCompatActivity() {
                             }
                     }
 
-                //update points here
-                updatePoints()
+
             }else{
                 Toast.makeText(
                     this,
@@ -131,7 +137,7 @@ class UploadPhotoActivity : AppCompatActivity() {
     }
 }
 
-fun updatePoints() {
+fun updatePoints(url: String) {
     val database = FirebaseFirestore.getInstance()
     val user = Firebase.auth.currentUser
     lateinit var points : Number
@@ -141,7 +147,9 @@ fun updatePoints() {
                 points = task.data?.getValue("rewardPts") as Number         //getPoints
                 database.collection("users")                        //updatePoints+1
                     .document(user.email.toString())
-                    .update("rewardPts", points.toInt()+1)
+                    .update("rewardPts", points.toInt()+1,
+                        "photoId", FieldValue.arrayUnion(url)
+                        )
             }
 
     }
