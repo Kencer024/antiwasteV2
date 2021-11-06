@@ -17,11 +17,17 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.antiwaste3_0.R
 import com.example.antiwaste3_0.databinding.FragmentNotificationsBinding
 import kotlinx.android.synthetic.main.fragment_notifications.*
+import org.json.JSONObject
+import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
     private var _binding: FragmentNotificationsBinding? = null
+
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -51,4 +57,6 @@ class NotificationsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

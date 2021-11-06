@@ -35,7 +35,7 @@ class UploadPhotoActivity : AppCompatActivity() {
 
         btn_select_image.setOnClickListener{
             if(ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                    Manifest.permission.READ_EXTERNAL_STORAGE
                 )== PackageManager.PERMISSION_GRANTED){
                 //Select Image
                 val galleryIntent = Intent(
@@ -149,7 +149,7 @@ fun updatePoints(url: String) {
                     .document(user.email.toString())
                     .update("rewardPts", points.toInt()+1,
                         "photoId", FieldValue.arrayUnion(url)
-                        )
+                    )
             }
 
     }
@@ -164,10 +164,8 @@ fun updatePoints() {
     val database = FirebaseFirestore.getInstance()
     val user = Firebase.auth.currentUser
     var points2 = getPoints().toInt()
-
     if (user != null) {
         database.collection("users").document(user.email.toString()).update("rewardPts", points2)
         }
 }*/
-
 
