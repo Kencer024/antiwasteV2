@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Antiwaste3_0">
         <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".WeatherActivity"
             android:exported="false" />
         <activity
