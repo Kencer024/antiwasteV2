@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@drawable/bg4"
     tools:context=".LoginActivity">
-
 
 
     <TextView
@@ -18,8 +17,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            tools:text="abc@gmail.com"/>
+            tools:text="abc@gmail.com" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -56,9 +57,9 @@
         <EditText
             android:id="@+id/et_login_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="textPassword"
-            tools:text="abc123DEF"/>
+            tools:text="abc123DEF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -95,7 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="5dp"
-            android:text="Don\'t have an account"/>
+            android:text="Don\'t have an account"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,17 +107,9 @@
             android:foreground="?attr/selectableItemBackground"
             android:padding="5dp"
             android:text="Register"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="305dp"
-        android:layout_height="321dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logomsg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
