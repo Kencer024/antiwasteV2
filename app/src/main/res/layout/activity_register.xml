@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@drawable/bg4"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -142,6 +142,8 @@
         android:layout_marginTop="28dp"
         android:padding="5dp"
         android:text="Already have an account"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_register" />
 
@@ -154,9 +156,11 @@
         android:foreground="?attr/selectableItemBackground"
         android:padding="5dp"
         android:text="Login"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toEndOf="@+id/tv_don_t_have_an_account"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        android:textStyle="bold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
