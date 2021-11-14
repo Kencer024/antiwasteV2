@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -22,7 +21,6 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_upload_photo.*
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import java.io.IOException
-import java.lang.reflect.TypeVariable
 
 
 class UploadPhotoActivity : AppCompatActivity() {
@@ -142,19 +140,19 @@ fun updatePoints(url: String) {
     val user = Firebase.auth.currentUser
     lateinit var points : Number
     if (user != null) {
-        database.collection("users").document(user.email.toString()).get()
+        database.collection("users").document(
+            user.email.toString()).get()
             .addOnSuccessListener() { task ->
                 points = task.data?.getValue("rewardPts") as Number         //getPoints
                 database.collection("users")                        //updatePoints+1
                     .document(user.email.toString())
-                    .update("rewardPts", points.toInt()+1,
-                        "photoId", FieldValue.arrayUnion(url)
+                    .update("rewardPts",
+                        points.toInt()+1,
+                        "photoId",
+                        FieldValue.arrayUnion(url)
                     )
             }
 
-    }
-    else{
-        points = 500
     }
 
 }

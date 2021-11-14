@@ -1,4 +1,4 @@
-package com.example.antiwaste3_0.ui.home
+package com.example.antiwaste3_0.view.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

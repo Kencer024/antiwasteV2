@@ -1,4 +1,4 @@
-package com.example.antiwaste3_0.ui.home
+package com.example.antiwaste3_0.view.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,14 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.antiwaste3_0.LoginActivity
-import com.example.antiwaste3_0.MapsActivity
 import com.example.antiwaste3_0.R
 import com.example.antiwaste3_0.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 

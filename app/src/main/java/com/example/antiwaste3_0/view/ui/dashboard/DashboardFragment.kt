@@ -1,22 +1,21 @@
-package com.example.antiwaste3_0.ui.dashboard
+package com.example.antiwaste3_0.view.ui.dashboard
 
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.antiwaste3_0.*
 import com.example.antiwaste3_0.databinding.FragmentDashboardBinding
-import org.json.JSONObject
-import java.net.URL
-import java.text.SimpleDateFormat
+import com.example.antiwaste3_0.MapsActivity
+import com.example.antiwaste3_0.MapsActivity2
+import com.example.antiwaste3_0.UploadPhotoActivity
+import com.example.antiwaste3_0.WeatherActivity
 import java.util.*
 
 class DashboardFragment : Fragment() {

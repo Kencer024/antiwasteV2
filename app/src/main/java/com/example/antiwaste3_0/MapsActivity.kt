@@ -2,13 +2,13 @@ package com.example.antiwaste3_0
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.antiwaste3_0.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.example.antiwaste3_0.databinding.ActivityMapsBinding
 import com.google.maps.android.data.kml.KmlLayer
 
@@ -38,6 +38,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -48,10 +50,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val layer = KmlLayer(mMap, R.raw.raw_map, this@MapsActivity)
         layer.addLayerToMap()
 
-        /**
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))**/
     }
 }
